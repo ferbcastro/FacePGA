@@ -1,2 +1,5 @@
 models/
+build/
 *.o
+facepga
+facepga-debug
