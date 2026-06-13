@@ -7,6 +7,21 @@ extern "C" {
 #include "utils/logger.hpp"
 #include "shallow.hpp"
 
+void Usage () {
+    printf("========================================\n");
+    printf("FacePGA Learning - Usage\n");
+    printf("========================================\n");
+    printf("Required parameters:\n");
+    printf("  -d <file>   Path to the dataset file\n");
+    printf("  -a <file>   Path to the model architecture file\n");
+    printf("  -h <file>   Path to the hyperparameters file\n");
+    printf("Optional parameters:\n");
+    printf("  -e <dir>    Directory to export results (default: current directory)\n");
+    printf("\nExample:\n");
+    printf("  ./facepga -d dataset.csv -a arch.json -h hyper.json -e ./results\n");
+    printf("========================================\n");
+}
+
 int main(int argc, char* argv[]) {
     const char* options = "e:d:a:h:";
     char opt;
@@ -41,7 +56,8 @@ int main(int argc, char* argv[]) {
     }
 
     if (!datasetPath || !archPath || !paramsPath) {
-        FACEPGA_ERROR_PRINTF("Required parameter left unset!\n");
+        FACEPGA_ERROR_PRINTF("Required parameter left unset!\n\n");
+        Usage();
         return 1;
     }
 
