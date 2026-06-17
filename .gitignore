@@ -3,3 +3,4 @@ build/
 *.o
 facepga
 facepga-debug
+.cache/
